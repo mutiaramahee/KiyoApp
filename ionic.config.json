@@ -1,0 +1,7 @@
+{
+  "name": "kiyoApp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
