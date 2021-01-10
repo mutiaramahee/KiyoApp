@@ -1,7 +1,10 @@
 {
   "name": "kiyoApp",
   "integrations": {
-    "capacitor": {}
+    "capacitor": {
+      "enabled": false
+    },
+    "cordova": {}
   },
   "type": "angular"
 }

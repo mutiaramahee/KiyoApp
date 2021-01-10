@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+  	<ion-buttons slot="start">
+        <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title *ngFor='let row of data | slice:0:1' style="text-transform: capitalize">{{row.nama_kategori}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+	<div *ngIf="!data?.length" style="text-align: center; padding-top: 20px">
+		<ion-card-header style="text-align: center; --color:#8366e3">
+			<ion-icon name="sad-outline" size="large"></ion-icon><br>
+			Whoopsi, belum ada postingan untuk kategori ini. Coba cari kategori lain ya!
+		</ion-card-header>
+	</div>
+
+	<ion-card *ngFor = "let row of data" (click)="getDetails(row)">
+	  <img src="https://kiyo-blog.000webhostapp.com/assets/uploads/post/{{row.file_gambar}}">
+	  <ion-card-header>
+		 <ion-badge>{{row.nama_kategori}}</ion-badge>	  	
+	    <ion-card-title>{{row.judul}}</ion-card-title>
+	    <ion-card-subtitle><b>{{row.nama_penulis}}</b> | {{(row.tgl_insert | slice:0:16)}}</ion-card-subtitle>
+	  </ion-card-header>
+	  <ion-card-content>
+	  	<div [innerHTML] ="(row.isi_post.length > 50) ? (row.isi_post | slice:0:50) : row.isi_post">
+	   	</div>
+	  </ion-card-content>
+	</ion-card>
+</ion-content>

@@ -1,0 +1,22 @@
+ion-segment-button{
+	--background: rgb(182,137,216);
+  	--background: linear-gradient(90deg, rgba(182,137,216) 4%, rgba(196,167,215,1) 50%, rgba(224,209,228,1) 97%) ;
+  	--color: white;
+  	font-weight: bold;
+	height: 30px;
+	min-height: 30px;
+	margin-right: 3px;
+}
+
+ion-segment-button.segment-button-checked{
+	--background: rgb(182,137,216);
+  	--background: linear-gradient(90deg, rgba(182,137,216) 4%, rgba(196,167,215,1) 50%, rgba(224,209,228,1) 97%) !important;
+  	--color: white !important;
+  	font-weight: bold;
+	--indicator-color: none;
+}
+
+ion-searchbar{
+	--background: #e0d1e4;
+	--color: white;
+}

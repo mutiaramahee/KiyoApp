@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-toolbar>
+  	<ion-buttons slot="start">
+        <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Detail Post</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+	<ion-card>
+        <img src="https://kiyo-blog.000webhostapp.com/assets/uploads/post/{{data.file_gambar}}">
+        <ion-card-header>
+		 <ion-badge>{{data.nama_kategori}}</ion-badge>
+		 <ion-card-title>{{data.judul}}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <div [innerHTML] ="data.isi_post" style="text-align: justify;"></div>
+        </ion-card-content>
+        <ion-card-header>
+          <ion-item>
+          	<ion-avatar slot="start">
+            	<img src="https://kiyo-blog.000webhostapp.com/assets/uploads/penulis/{{data.foto}}">
+          	</ion-avatar>
+          	<ion-label>
+          		{{data.nama_penulis}}
+          		<ion-card-subtitle>{{(data.tgl_insert | slice:0:10)}} at {{(data.tgl_insert | slice:11:16)}}</ion-card-subtitle>
+          	</ion-label>
+          </ion-item>
+        </ion-card-header>
+    </ion-card>
+    <ion-card>
+    	<ion-card-header>
+          <ion-card-title><strong>Komentar</strong></ion-card-title>
+        </ion-card-header>
+        <ion-card-content *ngIf="!komentar?.length">
+        	<ion-label>
+        		Tidak ada komentar
+        	</ion-label>
+        </ion-card-content>
+        <ion-card-content *ngFor = "let kom of komentar">
+          <ion-item>
+              <ion-avatar slot="start">
+                <img src="https://kiyo-blog.000webhostapp.com/assets/uploads/penulis/avatar.png">
+              </ion-avatar>
+              <ion-label>
+                <ion-card-subtitle><strong>{{ kom.nama_pengirim }}</strong></ion-card-subtitle>
+                <ion-card-subtitle><small>{{(kom.tgl | slice:0:10)}} at {{(kom.tgl | slice:11:16)}}</small></ion-card-subtitle>
+                {{ kom.isi }}
+            </ion-label>
+          </ion-item>
+        </ion-card-content>
+    </ion-card>
+</ion-content>

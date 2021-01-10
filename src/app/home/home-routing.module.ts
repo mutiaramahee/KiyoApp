@@ -4,8 +4,29 @@ import { HomePage } from './home.page';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'home',
     component: HomePage,
+    children:
+    [
+    	{
+    		path: 'posts',
+    		loadChildren: () => import('../pages/posts/posts.module').then(m => m.PostsPageModule)
+    	},
+    	{
+    		path: 'recents',
+    		loadChildren: () => import('../pages/recents/recents.module').then(m => m.RecentsPageModule)
+    	},
+    	{
+    		path: '',
+    		redirectTo: '/home/posts',
+    		pathMatch: 'full'
+    	}
+    ]
+  },
+  {
+  	path: '',
+  	redirectTo: '/home/posts',
+    pathMatch: 'full'
   }
 ];
 

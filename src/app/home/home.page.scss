@@ -25,3 +25,11 @@
 #container a {
   text-decoration: none;
 }
+
+ion-tabs.tab-selected{
+  color: #8366e3 !important;
+}
+
+ion-tab-bar{
+  --color-selected: #8366e3 !important;
+}
